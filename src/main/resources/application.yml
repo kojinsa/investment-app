@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: demo
+  profiles:
+    active: h2
+  jpa:
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.id.new_generator_mappings: false
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.jdbc.batch_size: 25
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.jdbc.fetch_size: 150
+      hibernate.criteria.literal_handling_mode: BIND
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+      hibernate.query.in_clause_parameter_padding: true
+      hibernate.format_sql: true
+      hibernate.jdbc.lob.non_contextual_creation: true
+    show-sql: true
+    open-in-view: true
+
+
+logging:
+  level:
+    org:
+      hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+server:
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 100
+    max-connections: 8192
+    accept-count: 100
+    connection-timeout: 20000
